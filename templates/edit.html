@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-4xl mx-auto flex flex-col gap-8">
+    <div class="flex items-center justify-between">
+        <nav class="flex items-center gap-2 text-stone-400 text-label-md">
+            <a class="hover:text-primary transition-colors" href="{{ url_for('post_list') }}">게시글 목록</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <a class="hover:text-primary transition-colors" href="{{ url_for('post_detail', post_id=post['id']) }}">{{ post['title'][:20] }}</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <span class="text-stone-600 font-semibold">수정</span>
+        </nav>
+    </div>
+
+    <form method="POST" class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(140,106,93,0.06)] p-10 flex flex-col gap-6">
+        <div>
+            <input
+                type="text"
+                name="title"
+                required
+                value="{{ post['title'] }}"
+                class="w-full text-headline-xl font-headline-xl bg-transparent border-none focus:ring-0 placeholder:text-stone-200 p-0"
+            />
+        </div>
+        <div class="border-y border-stone-100 py-3 mb-2">
+            <div class="flex items-center gap-2 text-stone-400 text-label-sm">
+                <span class="material-symbols-outlined text-sm">edit_note</span>
+                마크다운 없이 자유롭게 작성하세요
+            </div>
+        </div>
+        <div class="min-h-[400px]">
+            <textarea
+                name="content"
+                required
+                class="w-full text-body-lg font-body-lg bg-transparent border-none focus:ring-0 placeholder:text-stone-300 p-0 resize-none min-h-[400px]"
+            >{{ post['content'] }}</textarea>
+        </div>
+        <div class="flex items-center justify-end gap-3 pt-6 border-t border-stone-100">
+            <a href="{{ url_for('post_detail', post_id=post['id']) }}" class="px-5 py-2 text-stone-500 font-label-md hover:bg-stone-100 rounded-full transition-all">취소</a>
+            <button type="submit" class="px-8 py-2 bg-primary text-on-primary rounded-full font-label-md shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">수정하기</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

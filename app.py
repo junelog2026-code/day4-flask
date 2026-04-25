@@ -1,9 +1,9 @@
+import os
 import sqlite3
-from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, g
 
 app = Flask(__name__)
-app.config["DATABASE"] = "hyggeblog.db"
+app.config["DATABASE"] = os.environ.get("DATABASE_PATH", "hyggeblog.db")
 
 
 def get_db():
@@ -68,5 +68,27 @@ def post_detail(post_id):
     return render_template("detail.html", post=post)
 
 
+@app.route("/post/<int:post_id>/edit", methods=["GET", "POST"])
+def post_edit(post_id):
+    db = get_db()
+    post = db.execute("SELECT * FROM posts WHERE id = ?", (post_id,)).fetchone()
+    if post is None:
+        return redirect(url_for("post_list"))
+    if request.method == "POST":
+        db.execute("UPDATE posts SET title = ?, content = ? WHERE id = ?",
+                   (request.form["title"], request.form["content"], post_id))
+        db.commit()
+        return redirect(url_for("post_detail", post_id=post_id))
+    return render_template("edit.html", post=post)
+
+
+@app.route("/post/<int:post_id>/delete", methods=["POST"])
+def post_delete(post_id):
+    db = get_db()
+    db.execute("DELETE FROM posts WHERE id = ?", (post_id,))
+    db.commit()
+    return redirect(url_for("post_list"))
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
