@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#d2c4b9",
+                    "on-tertiary-fixed": "#1f1b14",
+                    "on-tertiary-container": "#fff7f0",
+                    "tertiary": "#5f5950",
+                    "surface-container-high": "#e9e8e5",
+                    "on-surface-variant": "#504440",
+                    "on-primary-container": "#fff6f3",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#efeeeb",
+                    "on-secondary-fixed": "#211a14",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#77574b",
+                    "inverse-on-surface": "#f2f1ee",
+                    "error-container": "#ffdad6",
+                    "surface": "#faf9f6",
+                    "on-primary-fixed": "#2c160c",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#faf9f6",
+                    "secondary-container": "#ebddd2",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#6b6158",
+                    "tertiary-fixed-dim": "#cec5bb",
+                    "on-surface": "#1a1c1a",
+                    "secondary-fixed": "#eee0d5",
+                    "tertiary-fixed": "#ebe1d6",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#ffdbce",
+                    "inverse-surface": "#2f312f",
+                    "surface-container-highest": "#e3e2e0",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#4e453d",
+                    "outline-variant": "#d4c3bd",
+                    "on-primary-fixed-variant": "#5d4034",
+                    "inverse-primary": "#e7beae",
+                    "primary-fixed-dim": "#e7beae",
+                    "primary": "#715246",
+                    "outline": "#82746f",
+                    "surface-variant": "#e3e2e0",
+                    "secondary": "#675d54",
+                    "background": "#faf9f6",
+                    "on-tertiary-fixed-variant": "#4c463e",
+                    "tertiary-container": "#787168",
+                    "surface-dim": "#dbdad7",
+                    "surface-container-low": "#f4f3f1",
+                    "primary-container": "#8c6a5d",
+                    "on-background": "#1a1c1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "xs": "4px",
+                    "gutter": "20px",
+                    "md": "16px",
+                    "container-max": "1200px",
+                    "lg": "24px",
+                    "unit": "4px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -10px rgba(140, 106, 93, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<header class="bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm docked full-width top-0 sticky z-40">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] antialiased">
+<div class="text-2xl font-bold tracking-tight text-stone-800 dark:text-stone-50">HyggeBlog</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 transition-colors duration-200 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 px-3 py-1 rounded-lg" href="#">Explore</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 transition-colors duration-200 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 px-3 py-1 rounded-lg" href="#">Trending</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 transition-colors duration-200 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 px-3 py-1 rounded-lg" href="#">Collections</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-[20px]" data-icon="search">search</span>
+<input class="bg-stone-100/50 border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search stories..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-full font-label-md transition-all active:scale-95 hover:shadow-lg">
+                    Create Post
+                </button>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto flex min-h-screen">
+<aside class="h-screen w-64 hidden lg:flex flex-col sticky top-[65px] left-0 border-r border-stone-200/60 dark:border-stone-800/60 bg-stone-50 dark:bg-stone-950 p-4 gap-2">
+<div class="mb-8 px-2">
+<h2 class="text-lg font-black text-stone-800 dark:text-stone-50 font-['Plus_Jakarta_Sans']">Creator Studio</h2>
+<p class="text-xs text-stone-500 dark:text-stone-400">Digital Hygge Space</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-200/50 dark:bg-stone-800/50 text-stone-900 dark:text-white font-medium rounded-lg cursor-pointer active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg cursor-pointer active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md">My Posts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg cursor-pointer active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="edit_square">edit_square</span>
+<span class="font-label-md">Drafts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg cursor-pointer active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-secondary-container rounded-xl">
+<p class="text-on-secondary-container font-label-md mb-2">Pro Plan</p>
+<p class="text-[12px] text-on-secondary-container opacity-80 mb-4">Unlock advanced analytics and themes.</p>
+<button class="w-full py-2 bg-primary text-on-primary rounded-lg text-sm font-bold hover:bg-primary-container transition-colors">Upgrade Plan</button>
+</div>
+</aside>
+<main class="flex-1 p-8 lg:p-12 overflow-hidden">
+<header class="mb-12">
+<h1 class="font-headline-xl text-on-background mb-2">Recent Stories</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Curated thoughts and minimalist inspirations for a more intentional life.</p>
+</header>
+<div class="bento-grid">
+<article class="col-span-12 md:col-span-8 group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden custom-shadow transition-all hover:-translate-y-1 hover:shadow-xl h-full flex flex-col md:flex-row">
+<div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
+<img alt="A cozy sunlit reading nook" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern minimalist interior with a beige linen armchair, soft sunlight streaming through a window, and a small wooden side table with a ceramic mug." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMlYCrLvIP-Aq-nfU1re51BcqqkVp8DCdMvgXl82FO7SpqvHtYh6-oc_uuSEejzz-3MYr6QwjZ5mu0n9X1a8Yh_LwNMjGjx3TAX6YCmtpD0OMiL0fvt4hbgJeQDgseCKvzSayhEL0T4D7OOK_YRqGYowRtZ-UIFeJveJqmFoEl74Gk97mFojXKAXV8bKIS0yJC4549LfYJ_FrlWjRA_F1vSklV4tJiElWRt7CmeZFTjFpGTjn1u7vElWt2dU9YUUk5NSJc7X-c2-Ci"/>
+</div>
+<div class="md:w-1/2 p-8 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm rounded-full">LIFESTYLE</span>
+<time class="text-label-sm text-outline">Oct 24, 2023</time>
+</div>
+<h2 class="font-headline-lg text-on-background mb-4 group-hover:text-primary transition-colors">The Art of Slow Living in a Fast-Paced Digital World</h2>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-3">Discover how to reclaim your time and find peace in small moments through intentional habits and digital minimalism practices that actually work.</p>
+<div class="flex items-center gap-2 text-primary font-label-md">
+<span>Read Full Story</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</article>
+<article class="col-span-12 md:col-span-4 group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl p-6 custom-shadow transition-all hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+<div class="aspect-video rounded-lg overflow-hidden mb-6">
+<img alt="Minimalist desk setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Overhead view of a clean workspace with a single laptop, a small green plant in a terracotta pot, and a warm cup of coffee on a light wood desk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQCF9DcRB1pbR-7Egr4tdGIMUpA3yLUCvm8dGSGWu8FYnNzC4te6yNG_bkPD-wJMFZLiFIf58429JEi7vWfViiQFchX7w3jfvyBO5DYaRuSgBya021KD38eAFY4aKEM6P26lX8vtD-_yLZ6whlPztRKaMZY-yLRiiJIYCRu9ThFLW4eq8iWmN8MtjbA2Y2sxGd876G5l05PecRD284Ch5q5M7dclxK6uKBv--fXcRKoWUDeRd628cHiMsTIDvnVB6TXRVNq5oLz3aM"/>
+</div>
+<span class="w-fit px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm rounded-full mb-4">PRODUCTIVITY</span>
+<h2 class="font-headline-md text-on-background mb-3 group-hover:text-primary transition-colors">Deep Work &amp; Warm Focus</h2>
+<time class="text-label-sm text-outline mb-4 block">Oct 22, 2023</time>
+<p class="font-body-md text-on-surface-variant line-clamp-2">Creating an environment that nurtures your focus while maintaining a sense of comfort and ease.</p>
+</div>
+</article>
+<article class="col-span-12 md:col-span-4 group cursor-pointer">
+<div class="bg-secondary-container/30 rounded-xl p-8 custom-shadow transition-all hover:-translate-y-1 hover:shadow-xl h-full border border-secondary-container/50">
+<span class="w-fit px-3 py-1 bg-surface text-on-surface-variant font-label-sm rounded-full mb-6 block">DESIGN</span>
+<h2 class="font-headline-md text-on-background mb-4 group-hover:text-primary transition-colors">Why Tactile Interfaces Feel Better</h2>
+<p class="font-body-md text-on-surface-variant mb-6">Exploring the emotional connection we have with textures, shadows, and organic movements in digital design.</p>
+<time class="text-label-sm text-outline block">Oct 18, 2023</time>
+</div>
+</article>
+<article class="col-span-12 md:col-span-4 group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-xl p-6 custom-shadow transition-all hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+<div class="aspect-video rounded-lg overflow-hidden mb-6">
+<img alt="Ceramic studio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted ceramic bowls stacked neatly in a sunlit artisan workshop with earth-toned glazes and rustic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTOV38xntwYQLXf73mwZNxMoLls6T9lmXW3EZDHdtIG5-VbpUcm8OO_2SiHBweydLlvZ1t38ToI-waAOh0hqHKGHrUBxaDO_v0yuJ9OxJUqI58Hw-FOLEDxYV1G7qvmCVOxQPRLDmCVjf9nZt9sAzVoEbmfwbSv61d50aB9sbkCcis1rkEP2CVnn5lwcFxFic0j4erwm2EZ4ex9T_lVeimRKQBbXMC2AHw_EdMdL96NUP_BZJu7m_MzdM69R1jcIozFLnE9Ep7MWH3"/>
+</div>
+<span class="w-fit px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm rounded-full mb-4">CRAFT</span>
+<h2 class="font-headline-md text-on-background mb-3 group-hover:text-primary transition-colors">The Beauty of Imperfection</h2>
+<time class="text-label-sm text-outline mb-4 block">Oct 15, 2023</time>
+<p class="font-body-md text-on-surface-variant line-clamp-2">Embracing wabi-sabi in our daily objects and our creative outputs.</p>
+</div>
+</article>
+<article class="col-span-12 md:col-span-4 group cursor-pointer">
+<div class="bg-primary text-on-primary rounded-xl p-8 custom-shadow transition-all hover:-translate-y-1 hover:shadow-xl h-full relative overflow-hidden">
+<div class="relative z-10">
+<span class="w-fit px-3 py-1 bg-primary-container text-on-primary-container font-label-sm rounded-full mb-6 block">ESSAY</span>
+<h2 class="font-headline-md mb-4 group-hover:text-primary-fixed transition-colors">Finding Stillness in a Crowded Room</h2>
+<p class="text-sm opacity-90 mb-8">A personal reflection on the mental sanctuary we build for ourselves amidst the noise of modern urban life.</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<p class="text-xs font-bold">Elena Thorne</p>
+<p class="text-[10px] opacity-70">5 min read</p>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary-container/20 rounded-full blur-2xl"></div>
+</div>
+</article>
+</div>
+<footer class="mt-20 py-12 border-t border-stone-200 dark:border-stone-800 bg-stone-100 dark:bg-stone-900 w-full font-['Plus_Jakarta_Sans'] text-xs tracking-wide">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-stone-600 dark:text-stone-400">
+<p class="opacity-70 hover:opacity-100 transition-opacity duration-300">© 2024 HyggeBlog. Built for clarity and comfort.</p>
+<nav class="flex gap-8">
+<a class="opacity-70 hover:opacity-100 transition-opacity duration-300 hover:text-stone-900 dark:hover:text-stone-100" href="#">About</a>
+<a class="opacity-70 hover:opacity-100 transition-opacity duration-300 hover:text-stone-900 dark:hover:text-stone-100 underline font-bold" href="#">Privacy</a>
+<a class="opacity-70 hover:opacity-100 transition-opacity duration-300 hover:text-stone-900 dark:hover:text-stone-100" href="#">Contact</a>
+<a class="opacity-70 hover:opacity-100 transition-opacity duration-300 hover:text-stone-900 dark:hover:text-stone-100" href="#">RSS Feed</a>
+</nav>
+</div>
+</footer>
+</main>
+</div>
+<button class="fixed bottom-8 right-8 bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

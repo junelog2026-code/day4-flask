@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#d2c4b9",
+                    "on-tertiary-fixed": "#1f1b14",
+                    "on-tertiary-container": "#fff7f0",
+                    "tertiary": "#5f5950",
+                    "surface-container-high": "#e9e8e5",
+                    "on-surface-variant": "#504440",
+                    "on-primary-container": "#fff6f3",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#efeeeb",
+                    "on-secondary-fixed": "#211a14",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#77574b",
+                    "inverse-on-surface": "#f2f1ee",
+                    "error-container": "#ffdad6",
+                    "surface": "#faf9f6",
+                    "on-primary-fixed": "#2c160c",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#faf9f6",
+                    "secondary-container": "#ebddd2",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#6b6158",
+                    "tertiary-fixed-dim": "#cec5bb",
+                    "on-surface": "#1a1c1a",
+                    "secondary-fixed": "#eee0d5",
+                    "tertiary-fixed": "#ebe1d6",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#ffdbce",
+                    "inverse-surface": "#2f312f",
+                    "surface-container-highest": "#e3e2e0",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#4e453d",
+                    "outline-variant": "#d4c3bd",
+                    "on-primary-fixed-variant": "#5d4034",
+                    "inverse-primary": "#e7beae",
+                    "primary-fixed-dim": "#e7beae",
+                    "primary": "#715246",
+                    "outline": "#82746f",
+                    "surface-variant": "#e3e2e0",
+                    "secondary": "#675d54",
+                    "background": "#faf9f6",
+                    "on-tertiary-fixed-variant": "#4c463e",
+                    "tertiary-container": "#787168",
+                    "surface-dim": "#dbdad7",
+                    "surface-container-low": "#f4f3f1",
+                    "primary-container": "#8c6a5d",
+                    "on-background": "#1a1c1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "xs": "4px",
+                    "gutter": "20px",
+                    "md": "16px",
+                    "container-max": "1200px",
+                    "lg": "24px",
+                    "unit": "4px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #faf9f6;
+            color: #1a1c1a;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editor-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .editor-container::-webkit-scrollbar-thumb {
+            background-color: #d2c4b9;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<header class="bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm docked full-width top-0 sticky z-40">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] antialiased">
+<div class="text-2xl font-bold tracking-tight text-stone-800 dark:text-stone-50">HyggeBlog</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 transition-colors duration-200 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 px-3 py-1 rounded-md" href="#">Explore</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 transition-colors duration-200 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 px-3 py-1 rounded-md" href="#">Trending</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-stone-800 transition-colors duration-200 hover:bg-stone-100/50 dark:hover:bg-stone-800/50 px-3 py-1 rounded-md" href="#">Collections</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">search</span>
+<input class="pl-10 pr-4 py-2 rounded-full bg-secondary-container/30 border-none focus:ring-2 focus:ring-primary-container text-label-md w-48 transition-all focus:w-64" placeholder="Search ideas..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md hover:opacity-90 active:scale-[0.99] transition-all">Create Post</button>
+</div>
+</div>
+</header>
+<div class="flex max-w-7xl mx-auto">
+<aside class="h-[calc(100vh-64px)] w-64 hidden lg:flex flex-col sticky top-16 left-0 border-r border-stone-200/60 dark:border-stone-800/60 bg-stone-50 dark:bg-stone-950 p-4 gap-2 font-['Plus_Jakarta_Sans'] text-sm">
+<div class="mb-6 px-2">
+<h2 class="text-lg font-black text-stone-800 dark:text-stone-50">Creator Studio</h2>
+<p class="text-stone-500 text-xs">Digital Hygge Space</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-200/50 dark:bg-stone-800/50 text-stone-900 dark:text-white font-medium rounded-lg cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-medium">My Posts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="edit_square">edit_square</span>
+<span class="font-medium">Drafts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg transition-all cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+<div class="mt-auto p-4 bg-primary-fixed-dim rounded-xl flex flex-col gap-3">
+<p class="text-on-primary-fixed-variant font-label-sm text-xs">Unlock unlimited storage and premium themes.</p>
+<button class="bg-primary text-on-primary py-2 rounded-lg font-label-md text-xs transition-opacity hover:opacity-90">Upgrade Plan</button>
+</div>
+</aside>
+<main class="flex-1 min-h-screen p-8 lg:p-12 max-w-4xl mx-auto">
+<div class="flex flex-col gap-8">
+<div class="flex items-center justify-between">
+<nav class="flex items-center gap-2 text-stone-400 text-label-md">
+<a class="hover:text-primary transition-colors" href="#">My Posts</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-stone-600 font-semibold">New Creation</span>
+</nav>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2 text-stone-500 font-label-md hover:bg-stone-100 rounded-full transition-all">Save Draft</button>
+<button class="px-8 py-2 bg-primary text-on-primary rounded-full font-label-md shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Publish</button>
+</div>
+</div>
+<section class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(140,106,93,0.06)] p-10 flex flex-col gap-6">
+<div class="relative group">
+<textarea class="w-full text-headline-xl font-headline-xl bg-transparent border-none focus:ring-0 placeholder:text-stone-200 p-0 resize-none overflow-hidden" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'" placeholder="A title that evokes comfort..." rows="1"></textarea>
+</div>
+<div class="flex flex-wrap gap-2 items-center border-y border-stone-100 py-3 mb-2">
+<button class="p-2 hover:bg-stone-50 rounded-lg text-stone-500 transition-colors"><span class="material-symbols-outlined">format_bold</span></button>
+<button class="p-2 hover:bg-stone-50 rounded-lg text-stone-500 transition-colors"><span class="material-symbols-outlined">format_italic</span></button>
+<button class="p-2 hover:bg-stone-50 rounded-lg text-stone-500 transition-colors"><span class="material-symbols-outlined">format_list_bulleted</span></button>
+<button class="p-2 hover:bg-stone-50 rounded-lg text-stone-500 transition-colors"><span class="material-symbols-outlined">link</span></button>
+<div class="h-6 w-px bg-stone-200 mx-2"></div>
+<button class="p-2 hover:bg-stone-50 rounded-lg text-stone-500 transition-colors"><span class="material-symbols-outlined">image</span></button>
+<button class="p-2 hover:bg-stone-50 rounded-lg text-stone-500 transition-colors"><span class="material-symbols-outlined">format_quote</span></button>
+<button class="p-2 hover:bg-stone-50 rounded-lg text-stone-500 transition-colors"><span class="material-symbols-outlined">code</span></button>
+</div>
+<div class="min-h-[400px]">
+<textarea class="w-full text-body-lg font-body-lg bg-transparent border-none focus:ring-0 placeholder:text-stone-300 p-0 resize-none min-h-[400px]" placeholder="Share your thoughts. Keep it light, keep it hygge..."></textarea>
+</div>
+<div class="mt-8 flex flex-col gap-4">
+<label class="text-label-md text-stone-600">Featured Image</label>
+<div class="w-full aspect-[21/9] rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50 flex flex-col items-center justify-center gap-3 cursor-pointer hover:bg-stone-100/50 transition-colors group">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-stone-400 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+</div>
+<p class="text-label-sm text-stone-400">Click to upload header image (max 5MB)</p>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-4">
+<label class="text-label-md text-stone-600">Categories &amp; Tags</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-label-sm flex items-center gap-2">Lifestyle <span class="material-symbols-outlined text-xs cursor-pointer">close</span></span>
+<span class="px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-label-sm flex items-center gap-2">Mindfulness <span class="material-symbols-outlined text-xs cursor-pointer">close</span></span>
+<button class="px-4 py-1.5 border border-stone-200 text-stone-400 rounded-full text-label-sm hover:bg-stone-50 transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">add</span> Add Tag
+                            </button>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-6 rounded-2xl flex items-center gap-4 border border-stone-200/50">
+<div class="p-3 bg-white rounded-xl text-primary">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<div>
+<h4 class="font-label-md text-stone-800">Privacy Settings</h4>
+<p class="text-label-sm text-stone-500">Currently set to Public</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl flex items-center gap-4 border border-stone-200/50">
+<div class="p-3 bg-white rounded-xl text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h4 class="font-label-md text-stone-800">Schedule Post</h4>
+<p class="text-label-sm text-stone-500">Publish immediately</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 full-width mt-20">
+<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4 font-['Plus_Jakarta_Sans'] text-xs tracking-wide text-stone-600 dark:text-stone-400">
+<p>© 2024 HyggeBlog. Built for clarity and comfort.</p>
+<nav class="flex gap-8">
+<a class="opacity-70 hover:opacity-100 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity duration-300" href="#">About</a>
+<a class="opacity-70 hover:opacity-100 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity duration-300" href="#">Privacy</a>
+<a class="opacity-70 hover:opacity-100 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity duration-300" href="#">Contact</a>
+<a class="opacity-70 hover:opacity-100 hover:text-stone-900 dark:hover:text-stone-100 transition-opacity duration-300" href="#">RSS Feed</a>
+</nav>
+</div>
+</footer>
+</body></html>
