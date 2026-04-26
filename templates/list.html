@@ -5,6 +5,18 @@
     <p class="font-body-lg text-on-surface-variant max-w-2xl">따뜻하고 편안한 공간에서의 이야기들</p>
 </header>
 
+<form method="GET" action="{{ url_for('post_list') }}" class="mb-8 flex items-center gap-3">
+    <input type="text" name="keyword" value="{{ keyword }}" placeholder="제목 또는 내용 검색" class="flex-1 rounded-full border border-outline-variant bg-surface px-5 py-3 font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/30">
+
+    <select name="sort" onchange="this.form.submit()" class="rounded-full border border-outline-variant bg-surface px-4 py-3 font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30">
+        <option value="latest" {% if sort == 'latest' %}selected{% endif %}>최신순</option>
+        <option value="oldest" {% if sort == 'oldest' %}selected{% endif %}>오래된순</option>
+        <option value="title" {% if sort == 'title' %}selected{% endif %}>제목순 (가나다)</option>
+    </select>
+
+    <button type="submit" class="rounded-full bg-primary px-5 py-3 font-label-md text-on-primary hover:opacity-95 transition-opacity">🔍 검색</button>
+</form>
+
 {% if posts %}
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {% for post in posts %}
@@ -24,12 +36,33 @@
     </a>
     {% endfor %}
 </div>
+
+<div class="mt-10 flex items-center justify-center gap-4">
+    {% if has_prev %}
+    <a href="{{ url_for('post_list', page=page-1, keyword=keyword, sort=sort) }}" class="px-4 py-2 rounded-full bg-surface-container text-on-surface font-label-md hover:bg-surface-container-high transition-colors">이전</a>
+    {% else %}
+    <span aria-disabled="true" class="px-4 py-2 rounded-full bg-surface-container text-outline font-label-md opacity-50 cursor-not-allowed">이전</span>
+    {% endif %}
+
+    <span class="font-label-md text-on-surface-variant min-w-14 text-center">{{ page }}/{{ total_pages }}</span>
+
+    {% if has_next %}
+    <a href="{{ url_for('post_list', page=page+1, keyword=keyword, sort=sort) }}" class="px-4 py-2 rounded-full bg-surface-container text-on-surface font-label-md hover:bg-surface-container-high transition-colors">다음</a>
+    {% else %}
+    <span aria-disabled="true" class="px-4 py-2 rounded-full bg-surface-container text-outline font-label-md opacity-50 cursor-not-allowed">다음</span>
+    {% endif %}
+</div>
 {% else %}
 <div class="flex flex-col items-center justify-center py-20 text-center">
     <span class="material-symbols-outlined text-6xl text-stone-300 mb-4">edit_note</span>
+    {% if keyword %}
+    <h2 class="font-headline-md text-stone-400 mb-2">검색 결과가 없습니다</h2>
+    <p class="font-body-md text-stone-400 mb-8">다른 검색어로 다시 시도해보세요</p>
+    {% else %}
     <h2 class="font-headline-md text-stone-400 mb-2">아직 게시글이 없습니다</h2>
     <p class="font-body-md text-stone-400 mb-8">첫 번째 글을 작성해보세요</p>
     <a href="{{ url_for('post_create') }}" class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">글쓰기 시작하기</a>
+    {% endif %}
 </div>
 {% endif %}
 {% endblock %}

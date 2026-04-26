@@ -1,3 +1,4 @@
+import math
 import os
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, g
@@ -43,8 +44,54 @@ def initialize():
 @app.route("/")
 def post_list():
     db = get_db()
-    posts = db.execute("SELECT * FROM posts ORDER BY created_at DESC").fetchall()
-    return render_template("list.html", posts=posts)
+    per_page = 10
+    page = request.args.get("page", default=1, type=int)
+    keyword = request.args.get("keyword", default="", type=str).strip()
+    sort = request.args.get("sort", default="latest", type=str)
+
+    order_map = {
+        "latest": "created_at DESC, id DESC",
+        "oldest": "created_at ASC, id ASC",
+        "title": "title COLLATE NOCASE ASC, id ASC",
+    }
+    if sort not in order_map:
+        sort = "latest"
+
+    if page is None or page < 1:
+        page = 1
+
+    where_sql = ""
+    where_params = []
+    if keyword:
+        where_sql = " WHERE title LIKE ? OR content LIKE ?"
+        like_keyword = f"%{keyword}%"
+        where_params = [like_keyword, like_keyword]
+
+    total_posts = db.execute(
+        f"SELECT COUNT(*) FROM posts{where_sql}",
+        tuple(where_params),
+    ).fetchone()[0]
+
+    total_pages = max(1, math.ceil(total_posts / per_page))
+    if page > total_pages:
+        page = total_pages
+
+    offset = (page - 1) * per_page
+    posts = db.execute(
+        f"SELECT * FROM posts{where_sql} ORDER BY {order_map[sort]} LIMIT ? OFFSET ?",
+        tuple(where_params + [per_page, offset]),
+    ).fetchall()
+
+    return render_template(
+        "list.html",
+        posts=posts,
+        page=page,
+        total_pages=total_pages,
+        has_prev=page > 1,
+        has_next=page < total_pages,
+        keyword=keyword,
+        sort=sort,
+    )
 
 
 @app.route("/create", methods=["GET", "POST"])
